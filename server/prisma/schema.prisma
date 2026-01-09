@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Image {
+  id             String     @id @default(cuid())
+  url            String
+  originalWidth  Int
+  originalHeight Int
+  characters     Character[]
+  scores         Score[]
+  gameSessions   GameSession[]
+}
+
+model Character {
+  id       String  @id @default(cuid())
+  name     String
+  clue     String?
+  image    Image   @relation(fields: [imageId], references: [id])
+  imageId  String
+  x        Float   // normalized 0..1
+  y        Float   // normalized 0..1
+  width    Float?  // normalized
+  height   Float?  // normalized
+  radius   Float?  // normalized radius alternative
+}
+
+model Score {
+  id        String   @id @default(cuid())
+  username  String
+  timeMs    Int
+  image     Image    @relation(fields: [imageId], references: [id])
+  imageId   String
+  createdAt DateTime @default(now())
+}
+
+model GameSession {
+  id        String   @id @default(cuid())
+  startTime DateTime
+  image     Image    @relation(fields: [imageId], references: [id])
+  imageId   String
+  // store found character ids as JSON text to support SQLite
+  found     String   @default("[]")
+}

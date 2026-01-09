@@ -1,0 +1,22 @@
+{
+  "name": "photo-tagging-server",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "seed": "node prisma/seed.js",
+    "prisma:migrate": "npx prisma migrate dev --name init",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.12.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.12.0"
+  }
+}

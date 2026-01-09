@@ -1,0 +1,15 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+.app { max-width: 1100px; margin: 0 auto }
+.image-select { margin-bottom: 12px }
+.image-container { position: relative; width: 100%; max-width: 1000px; border: 1px solid #ddd; overflow: auto }
+.image-container img { width: 100%; height: auto; display: block }
+.target-box { position: absolute; width: 120px; background: rgba(255,255,255,0.95); border: 2px solid red; padding: 6px; z-index: 30 }
+.marker { position: absolute; width: 16px; height: 16px; background: limegreen; border-radius: 50%; border: 2px solid #fff; z-index: 20 }
+.marker.preview { background: orange }
+.admin-bar { margin-top: 8px }
+.admin-toggle { margin-top: 8px }
+.admin-list { margin-top: 16px }
+.controls { margin-bottom: 8px }
+.clues { margin-top: 8px; background: #fafafa; padding: 8px; border-radius: 4px }
+.clues ul { margin: 6px 0 0 16px }
+.leaderboard { margin-top: 16px }
